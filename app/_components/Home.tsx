@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AddGoalForm from "./AddGoalForm";
 import DashboardHeader from "./DashboardHeader";
 import GoalCard from "./GoalCard";
-import { Goal, Contribution } from "../types";
+import { Goal, Contribution } from "../types"; // Make sure this import path is correct
 
 function Home() {
   const [showForm, setShowForm] = useState(false);
@@ -17,21 +17,30 @@ function Home() {
   // Load goals from localStorage on mount
   useEffect(() => {
     const savedGoals = localStorage.getItem("savingsGoals");
+
     if (savedGoals) {
       try {
         const parsedGoals = JSON.parse(savedGoals);
         if (Array.isArray(parsedGoals)) {
-          const validatedGoals = parsedGoals.map((goal: any) => ({
-            ...goal,
-            savedAmount: goal.savedAmount || 0,
-            contributions: goal.contributions || [],
-          }));
+          const validatedGoals: Goal[] = parsedGoals.map(
+            (goal: Partial<Goal>): Goal => ({
+              id: goal.id ?? Date.now().toString(),
+              name: goal.name ?? "Untitled",
+              currency: goal.currency ?? "INR",
+              targetAmount: goal.targetAmount ?? 0,
+              savedAmount: goal.savedAmount ?? 0,
+              contributions: goal.contributions ?? [],
+              createdAt: goal.createdAt ?? new Date().toISOString(),
+            })
+          );
           setGoals(validatedGoals);
         }
-      } catch (e) {
-        console.error("Failed to parse saved goals", e);
+      } catch (error) {
+        console.error("Failed to parse saved goals", error);
       }
     }
+    
+
     fetchExchangeRate();
   }, []);
 
@@ -56,7 +65,7 @@ function Home() {
   };
 
   const handleAddGoal = (
-    goal: Omit<Goal, "id" | "savedAmount" | "contributions">
+    goal: Omit<Goal, "id" | "savedAmount" | "contributions" | "createdAt">
   ) => {
     const newGoal: Goal = {
       ...goal,

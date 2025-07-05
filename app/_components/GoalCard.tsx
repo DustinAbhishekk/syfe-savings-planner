@@ -15,6 +15,20 @@ import {
 } from "react-icons/fi";
 import CurrencyInput from "react-currency-input-field";
 
+interface Contribution {
+  id: string; 
+  amount: number;
+  date: string;
+}
+interface Goal {
+  id: string;
+  name: string;
+  currency: "INR" | "USD";
+  targetAmount: number;
+  savedAmount: number;
+  contributions: Contribution[];
+}
+
 interface GoalCardProps {
   id: string;
   name: string;
@@ -471,8 +485,9 @@ const GoalCard: React.FC<GoalCardProps> = ({
 
               <div className="p-5">
                 <p className="text-gray-600 mb-6">
-                  Are you sure you want to delete "{name}"? This action cannot
-                  be undone.
+                  {'Are you sure you want to delete "' +
+                    name +
+                    '"? This action cannot be undone.'}
                 </p>
 
                 <div className="flex justify-end gap-3">

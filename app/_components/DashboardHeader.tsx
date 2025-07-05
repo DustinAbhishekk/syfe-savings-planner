@@ -53,7 +53,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             } ago`
           );
         }
-      } catch (error) {
+      } catch {
         setTimeSinceUpdate("recently");
       }
     };
@@ -82,7 +82,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         maximumFractionDigits: 2,
         minimumFractionDigits: 0,
       });
-    } catch (e) {
+    } catch {
       return value.toString();
     }
   };
