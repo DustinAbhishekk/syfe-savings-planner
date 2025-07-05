@@ -1,3 +1,31 @@
+# 💰 Syfe Savings Planner
+
+This is a lightweight financial goals tracker built using **Next.js**, allowing users to set multiple savings goals, contribute funds, and monitor progress in real-time using live exchange rates.
+
+## 🚀 Features
+
+- 🌍 Support for multiple currencies (INR & USD)
+- 🎯 Add savings goals with name, amount, and currency
+- 📈 Visual progress tracking with progress bars
+- 💸 Add contributions with date and amount
+- 🔁 Live exchange rate fetched from [ExchangeRate API](https://app.exchangerate-api.com)
+- 📊 Dashboard summary (total target, total saved, overall completion)
+- 📦 Fully client-side & responsive
+- ✨ Smooth animations with Framer Motion
+
+---
+
+## 🧠 Tech Stack
+
+- ⚛️ [Next.js 14 / App Router]
+- 💨 Tailwind CSS
+- 💰 Currency Input with `react-currency-input-field`
+- 🎥 Animations via `framer-motion`
+- 🔄 Data managed using local state (no backend)
+
+---
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
