@@ -189,7 +189,7 @@ const GoalCard: React.FC<GoalCardProps> = ({
                       setShowEditForm(true);
                       setShowMenu(false);
                     }}
-                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    className="flex items-center cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                   >
                     <FiEdit className="mr-2" size={16} />
                     Edit Goal
@@ -199,7 +199,7 @@ const GoalCard: React.FC<GoalCardProps> = ({
                       setShowDeleteConfirm(true);
                       setShowMenu(false);
                     }}
-                    className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full text-left"
+                    className="flex items-center px-4 py-2 cursor-pointer text-sm text-red-600 hover:bg-gray-100 w-full text-left"
                   >
                     <FiTrash2 className="mr-2" size={16} />
                     Delete Goal
